@@ -11,7 +11,7 @@ class ArgumentProcessorImpl(
     private val terminal: Terminal
 ) : ArgumentProcessor {
     override fun process(args: Array<String>) {
-        if (!argumentValidator.validate(args!!)) {
+        if (!argumentValidator.validate(args)) {
             val usage = "Usage:" + System.getProperty("line.separator") +
                     "java -jar ./demo-kotlin-cli.jar generate password"
             terminal.show(usage)
