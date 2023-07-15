@@ -1,0 +1,9 @@
+@startuml UseCase
+actor "User" as user
+
+rectangle demo-kotlin-cli {
+  usecase "Generate Password" as generatePassword
+}
+
+user -> generatePassword
+@enduml

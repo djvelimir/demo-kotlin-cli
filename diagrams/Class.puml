@@ -1,0 +1,73 @@
+@startuml Class
+interface ArgumentValidator {
+    + validate(args: String[]): boolean
+}
+
+class ArgumentValidatorImpl {
+}
+
+interface ArgumentProcessor {
+    + process(args: String[])
+}
+
+class ArgumentProcessorImpl {
+    - argumentValidator: ArgumentValidator
+    - passwordGenerator: PasswordGenerator
+    - terminal: Terminal
+}
+
+interface Terminal {
+    + show(message: String)
+}
+
+class TerminalImpl {
+}
+
+interface PasswordGenerator {
+    + generate(): String
+}
+
+class PasswordGeneratorImpl {
+    - passwordLength: int
+    - randomCharacterGenerator: RandomCharacterGenerator
+    - stringShuffler: StringShuffler
+}
+
+interface RandomCharacterGenerator {
+    + generateUppercaseCharacter(): char
+    + generateLowercaseCharacter(): char
+    + generateDigitCharacter(): char
+    + generateSpecialCharacter(): char
+    + generateAllowedCharacter(): char
+}
+
+class RandomCharacterGeneratorImpl {
+    - uppercaseCharacters: String
+    - lowercaseCharacters: String
+    - digitCharacters: String
+    - specialCharacters: String
+    - allowedCharacters: String
+    - random: Random
+}
+
+interface StringShuffler {
+    + shuffle(characters: String): String
+}
+
+class StringShufflerImpl {
+}
+
+ArgumentValidator <|-- ArgumentValidatorImpl
+ArgumentProcessor <|-- ArgumentProcessorImpl
+Terminal <|-- TerminalImpl
+PasswordGenerator <|-- PasswordGeneratorImpl
+RandomCharacterGenerator <|-- RandomCharacterGeneratorImpl
+StringShuffler <|-- StringShufflerImpl
+
+ArgumentProcessorImpl *--l ArgumentValidator
+ArgumentProcessorImpl *--d PasswordGenerator
+ArgumentProcessorImpl *--r Terminal
+
+PasswordGeneratorImpl *--l RandomCharacterGenerator
+PasswordGeneratorImpl *--r StringShuffler
+@enduml
