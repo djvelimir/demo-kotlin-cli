@@ -1,0 +1,4 @@
+@startuml Class
+!theme amiga
+!include Class.puml
+@enduml

@@ -1,5 +1,4 @@
 @startuml Class
-!theme amiga
 interface ArgumentValidator {
     + validate(args: String[]): boolean
 }

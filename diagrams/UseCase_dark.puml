@@ -1,0 +1,4 @@
+@startuml UseCase
+!theme amiga
+!include UseCase.puml
+@enduml
