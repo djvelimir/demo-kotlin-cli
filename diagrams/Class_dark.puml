@@ -1,4 +1,4 @@
 @startuml Class
-!theme amiga
+!theme crt-green
 !include https://raw.githubusercontent.com/djvelimir/demo-kotlin-cli/main/diagrams/Class.puml
 @enduml
