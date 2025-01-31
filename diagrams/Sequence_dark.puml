@@ -1,4 +1,4 @@
 @startuml Sequence
 !theme amiga
-!include Sequence.puml
+!include https://raw.githubusercontent.com/djvelimir/demo-kotlin-cli/main/diagrams/Sequence.puml
 @enduml
