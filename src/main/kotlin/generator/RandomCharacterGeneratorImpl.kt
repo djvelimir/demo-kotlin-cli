@@ -1,6 +1,6 @@
 package generator
 
-import kotlin.random.Random
+import java.security.SecureRandom
 
 class RandomCharacterGeneratorImpl() : RandomCharacterGenerator {
     private val uppercaseCharacters: String
@@ -8,7 +8,7 @@ class RandomCharacterGeneratorImpl() : RandomCharacterGenerator {
     private val digitCharacters: String
     private val specialCharacters: String
     private var allowedCharacters: String
-    private val random: Random = Random.Default
+    private val random: SecureRandom
 
     init {
         uppercaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -19,6 +19,7 @@ class RandomCharacterGeneratorImpl() : RandomCharacterGenerator {
             .plus(lowercaseCharacters)
             .plus(digitCharacters)
             .plus(specialCharacters)
+        random = SecureRandom()
     }
 
     override fun generateUppercaseCharacter(): Char {
